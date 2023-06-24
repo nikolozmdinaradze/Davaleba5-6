@@ -1,0 +1,13 @@
+{% extends 'template.html' %}
+{% block template %}
+    <div class="readpage">
+        
+        <img src="../static/uploads/{{ image_name }}" class="read_image">
+        <div>
+            <h1>{{ title }}</h1>
+            <p>{{ content }}</p>
+            <p>author: {{editor}}</p>
+        </div>  
+
+    </div>
+{%endblock%}

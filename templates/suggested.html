@@ -1,0 +1,32 @@
+{% extends 'template.html' %}
+{% block template %}
+
+    <form action="{{url_for('suggested')}}" method="get">
+        <div class='suggested'>
+            <select id="category" required name="category">
+            <option value="">Select a category</option>
+            <option value="Politics">Politics</option>
+            <option value="Technologies">Technologies</option>
+            <option value="Art">Art</option>
+            <option value="Other">Other</option>
+            </select>
+            <button type="submit">SUBMIT</button>
+        </div>
+    </form>
+    <div class="articles">
+        {%for i in blogs%}
+        <div class="article">
+            <img src="../static/uploads/{{ i.image_name }}">
+            <div class="title">{{ i.title }}</div>
+            <div class="text">{{ i.content }}</div>
+            <div class="desc"><p>{{i.editor.fullname}}</p><p>{{ i.upload_date }}</p></div>
+            <form method="post" action="/read">
+                <input type="hidden" value="{{ i.id }}" name = "id">
+                <button type="submit" class="readmore">Read More</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+
+
+{%endblock%}

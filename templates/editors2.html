@@ -1,0 +1,18 @@
+{% extends 'template.html' %}
+{% block template %}
+    <div class="article">
+        <form method="post" action="/editors2">
+            <img src="../static/uploads/{{ blog.image_name }}">
+
+            <div class="title">{{ blog.title }}</div>
+
+            <div class="mb-3">
+                <label for="edited" class="form-label">Edit Content</label>
+                <textarea class="form-control" id="edited" rows="6" placeholder="{{blog.content}}" name="edited"></textarea>
+            </div> 
+
+            <div class="desc"><p>{{blog.editor.fullname}}</p><p>{{ blog.upload_date }}</p></div>
+            <button type="submit" class="readmore">Edit</button>
+        </form>
+    </div>
+{%endblock%}

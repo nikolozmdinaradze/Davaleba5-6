@@ -1,0 +1,19 @@
+{% extends 'template.html' %}
+{% block template %}
+<h1 class="main_title">Your Blogs</h1>
+<div class="articles">
+    {%for i in blogs%}
+    <div class="article">
+        <img src="../static/uploads/{{ i.image_name }}">
+        <div class="title">{{ i.title }}</div>
+        <div class="text">{{ i.content }}</div>
+        <div class="desc"><p>{{i.editor.fullname}}</p><p>{{ i.upload_date }}</p></div>
+        <form method="post" action="/editors1">
+            <input type="hidden" value="{{ i.id }}" name = "order">
+            <button type="submit" class="readmore">Delete</button>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+
+{%endblock%}
